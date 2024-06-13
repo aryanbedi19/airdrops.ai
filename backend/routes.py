@@ -12,9 +12,12 @@ def register():
     email = request.json.get('email')
     wallet_address = request.json.get('wallet_address')
     password = request.json.get('password')
+    print('Received registration request:', email, wallet_address, password)  # Add logging here
     if email and wallet_address and password:
         user = create_user(email, wallet_address, password)
+        print('User created with ID:', user.id)  # Add logging here
         return jsonify({"message": "User registered successfully", "user_id": user.id}), 201
+    print('Missing fields')  # Add logging here
     return jsonify({"message": "All fields are required"}), 400
 
 @main.route('/airdrops', methods=['GET'])

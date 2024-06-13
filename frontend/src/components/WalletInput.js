@@ -7,6 +7,7 @@ function WalletInput({ onRegister }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log('Form submitted with:', email, walletAddress, password);
         onRegister(email, walletAddress, password);
     };
 
