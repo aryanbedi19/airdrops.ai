@@ -5,8 +5,10 @@ db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(128), unique=True, nullable=False)
     wallet_address = db.Column(db.String(128), unique=True, nullable=False)
-    subscription_end_date = db.Column(db.DateTime, nullable=False)
+    password = db.Column(db.String(128), nullable=False)
+    subscription_end_date = db.Column(db.DateTime, nullable=True)
 
 class Airdrop(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -20,9 +22,8 @@ class Airdrop(db.Model):
     sentiment_score = db.Column(db.Float)
     risk_score = db.Column(db.Float)
 
-def create_user(wallet_address):
-    subscription_end_date = datetime.utcnow() + timedelta(days=30)
-    user = User(wallet_address=wallet_address, subscription_end_date=subscription_end_date)
+def create_user(email, wallet_address, password):
+    user = User(email=email, wallet_address=wallet_address, password=password)
     db.session.add(user)
     db.session.commit()
     return user
