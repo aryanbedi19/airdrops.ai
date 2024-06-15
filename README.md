@@ -15,7 +15,8 @@ The Airdrop Discovery Platform allows users to enter their cryptocurrency wallet
   - **Flask**: Serves the backend API that interacts with the frontend.
   - **Flask-CORS**: Handles Cross-Origin Resource Sharing (CORS), allowing the frontend to communicate with the backend.
 - **APIs**:
-  - **Blockchain Data Provider API**: (Hypothetical) Used to fetch real-time airdrop data based on wallet addresses. (Note: Replace with actual API details if available).
+  - **Blockchain Data Provider API**:  Used to fetch real-time airdrop data based on wallet addresses. 
 
-## Setup and Installation 🔧
-1. **Clone the Repository**
+## AI 
+- **OPEN AI**:
+  - Models finetuned for sentiment analysis, fraud detection and more
